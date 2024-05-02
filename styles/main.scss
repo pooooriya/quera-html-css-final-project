@@ -1,0 +1,261 @@
+@import "./font";
+@import "./variables";
+@import "./mixin";
+@import "./reset";
+@import "./global";
+@import "./responsive";
+
+.header {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  &__logo {
+    img {
+      width: 50px;
+      height: auto;
+    }
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    .fa-bars {
+      cursor: pointer;
+      display: flex;
+      @include sm {
+        display: none;
+      }
+    }
+    & > *:not(:last-child) {
+      margin-left: 15px;
+    }
+    a {
+      display: none;
+      font-size: 14px;
+      transition: color ease-in 0.1s;
+      font-weight: 300;
+      @include sm {
+        display: flex;
+      }
+      &:hover {
+        color: $secondary-color;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 300;
+  &--primary {
+    background-color: $primary-color;
+    color: #fff;
+    &:hover {
+      background-color: lighten($primary-color, 3%);
+    }
+  }
+  &--secondary {
+    background-color: $secondary-color;
+    color: #fff;
+    &:hover {
+      background-color: lighten($secondary-color, 3%);
+    }
+  }
+  i {
+    margin-left: 5px;
+  }
+}
+
+.carousel {
+  @include container;
+  background: url("https://static.delino.com/Image/Subscriber/gelatohouse/Sliders/otnavcsx.lpp.jpg")
+    center no-repeat;
+  background-size: cover;
+  height: 70vh;
+  position: relative;
+  &__arrowleft {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: 2px solid #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+  &__arrowright {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    border: 2px solid #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
+
+.information {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+
+  &__shipping {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px;
+    width: 180px;
+    border: 2px solid #f7f7f7;
+    border-radius: 5px;
+    h2 {
+      font-size: 12px;
+    }
+    &__time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+  &__description {
+    h2 {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 10px;
+      &::before {
+        content: "";
+        display: flex;
+        width: 10px;
+        height: 10px;
+        background-color: #26e600;
+        border-radius: 50%;
+        margin-left: 5px;
+        animation: pulse 1.5s forwards infinite;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.menu {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  &__basket {
+    display: none;
+    flex-grow: 0.2;
+    padding-right: 20px;
+    @include sm {
+      display: flex;
+    }
+    &__inner {
+      border: 2px solid #f7f7f7;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      height: 200px;
+      width: 100%;
+      h3 {
+        font-size: 12px;
+        border-bottom: 2px solid #f7f7f7;
+        width: 100%;
+        padding: 5px;
+      }
+      i {
+        font-size: 60px;
+      }
+
+      &__icon {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__main {
+    flex-grow: 1;
+    @include sm {
+      flex-grow: 0.8;
+    }
+    &__navigation {
+      font-size: 12px;
+      display: flex;
+
+      button {
+        border-radius: 0;
+      }
+
+      .btn--clicked {
+        border-bottom: none;
+        background-color: #f7f7f7;
+      }
+    }
+
+    &__category {
+      display: flex;
+      padding: 20px 10px;
+      background-color: #f7f7f7;
+      &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 10px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      h6 {
+        font-size: 10px;
+        text-align: center;
+        margin-top: 5px;
+      }
+    }
+  }
+}
